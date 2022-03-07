@@ -1,33 +1,29 @@
 package org.zerock.controller;
 
 import lombok.extern.log4j.Log4j;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.zerock.domain.SampleDTO;
 import org.zerock.domain.SampleDTOList;
 import org.zerock.domain.TodoDTO;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 
 @Controller
 @RequestMapping("/sample/*")
 @Log4j
 public class SampleController {
 
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
-    }
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder) {
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+//    }
 
     @RequestMapping(value = "/basic", method = {RequestMethod.GET, RequestMethod.POST})
     public void basicGet() {
@@ -36,12 +32,12 @@ public class SampleController {
 
     }
 
-    @GetMapping("/basicOnlyGet")
-    public void basicGet2() {
-
-        log.info("basic get only get..................");
-
-    }
+//    @GetMapping("/basicOnlyGet")
+//    public void basicGet2() {
+//
+//        log.info("basic get only get..................");
+//
+//    }
 
     @GetMapping("/ex01")
     public String ex01(SampleDTO dto) {
